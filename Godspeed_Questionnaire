@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Godspeed Questionnaire</title>
+<style>
+  body { font-family: Arial, sans-serif; }
+  .question { margin-bottom: 20px; }
+  .question label { margin-right: 10px; }
+</style>
+</head>
+<body>
+
+<h2>Godspeed Questionnaire for Human Robot Interaction</h2>
+
+<form id="godspeedQuestionnaire">
+
+  <!-- Part 1: Anthropomorphism -->
+  <h3>Part 1: Anthropomorphism</h3>
+  <div class="question">
+    <p>How human-like did you find the robot?</p>
+    <label>1 <input type="radio" name="humanLike" value="1"></label>
+    <label>2 <input type="radio" name="humanLike" value="2"></label>
+    <label>3 <input type="radio" name="humanLike" value="3"></label>
+    <label>4 <input type="radio" name="humanLike" value="4"></label>
+    <label>5 <input type="radio" name="humanLike" value="5"></label>
+  </div>
+  
+  <div class="question">
+    <p>Did the robot seem to have its own emotions?</p>
+    <label>1 <input type="radio" name="ownEmotions" value="1"></label>
+    <label>2 <input type="radio" name="ownEmotions" value="2"></label>
+    <label>3 <input type="radio" name="ownEmotions" value="3"></label>
+    <label>4 <input type="radio" name="ownEmotions" value="4"></label>
+    <label>5 <input type="radio" name="ownEmotions" value="5"></label>
+  </div>
+  
+  <!-- Part 2: Animacy -->
+  <h3>Part 2: Animacy</h3>
+  <div class="question">
+    <p>Did the robot seem lively to you?</p>
+    <label>1 <input type="radio" name="seemLively" value="1"></label>
+    <label>2 <input type="radio" name="seemLively" value="2"></label>
+    <label>3 <input type="radio" name="seemLively" value="3"></label>
+    <label>4 <input type="radio" name="seemLively" value="4"></label>
+    <label>5 <input type="radio" name="seemLively" value="5"></label>
+  </div>
+  
+  <div class="question">
+    <p>How much did the robot appear to be aware of its surroundings?</p>
+    <label>1 <input type="radio" name="awareSurroundings" value="1"></label>
+    <label>2 <input type="radio" name="awareSurroundings" value="2"></label>
+    <label>3 <input type="radio" name="awareSurroundings" value="3"></label>
+    <label>4 <input type="radio" name="awareSurroundings" value="4"></label>
+    <label>5 <input type="radio" name="awareSurroundings" value="5"></label>
+  </div>
+  
+  <!-- Part 3: Likeability -->
+  <h3>Part 3: Likeability</h3>
+  <div class="question">
+    <p>How pleasant was your interaction with the robot?</p>
+    <label>1 <input type="radio" name="pleasantInteraction" value="1"></label>
+    <label>2 <input type="radio" name="pleasantInteraction" value="2"></label>
+    <label>3 <input type="radio" name="pleasantInteraction" value="3"></label>
+    <label>4 <input type="radio" name="pleasantInteraction" value="4"></label>
+    <label>5 <input type="radio" name="pleasantInteraction" value="5"></label>
+  </div>
+  
+  <div class="question">
+    <p>How likable did you find the robot?</p>
+    <label>1 <input type="radio" name="likableRobot" value="1"></label>
+    <label>2 <input type="radio" name="likableRobot" value="2"></label>
+    <label>3 <input type="radio" name="likableRobot" value="3"></label>
+    <label>4 <input type="radio" name="likableRobot" value="4"></label>
+    <label>5 <input type="radio" name="likableRobot" value="5"></label>
+  </div>
+  
+  <!-- Part 4: Perceived Intelligence -->
+  <h3>Part 4: Perceived Intelligence</h3>
+  <div class="question">
+    <p>How intelligent did the robot appear to you?</p>
+    <label>1 <input type="radio" name="appearIntelligent" value="1"></label>
+    <label>2 <input type="radio" name="appearIntelligent" value="2"></label>
+    <label>3 <input type="radio" name="appearIntelligent" value="3"></label>
+    <label>4 <input type="radio" name="appearIntelligent" value="4"></label>
+    <label>5 <input type="radio" name="appearIntelligent" value="5"></label>
+  </div>
+  
+  <div class="question">
+    <p>Was the robot able to effectively understand and respond to your questions?</p>
+    <label>1 <input type="radio" name="understandRespond" value="1"></label>
+    <label>2 <input type="radio" name="understandRespond" value="2"></label>
+    <label>3 <input type="radio" name="understandRespond" value="3"></label>
+    <label>4 <input type="radio" name="understandRespond" value="4"></label>
+    <label>5 <input type="radio" name="understandRespond" value="5"></label>
+  </div>
+  
+  <!-- Part 5: Perceived Safety -->
+  <h3>Part 5: Perceived Safety</h3>
+  <div class="question">
+    <p>How safe did you feel during your interaction with the robot?</p>
+    <label>1 <input type="radio" name="feelSafe" value="1"></label>
+    <label>2 <input type="radio" name="feelSafe" value="2"></label>
+    <label>3 <input type="radio" name="feelSafe" value="3"></label>
+    <label>4 <input type="radio" name="feelSafe" value="4"></label>
+    <label>5 <input type="radio" name="feelSafe" value="5"></label>
+  </div>
+  
+  <div class="question">
+    <p>To what extent did the robot behave in a predictable manner?</p>
+    <label>1 <input type="radio" name="predictableBehavior" value="1"></label>
+    <label>2 <input type="radio" name="predictableBehavior" value="2"></label>
+    <label>3 <input type="radio" name="predictableBehavior" value="3"></label>
+    <label>4 <input type="radio" name="predictableBehavior" value="4"></label>
+    <label>5 <input type="radio" name="predictableBehavior" value="5"></label>
+  </div>
+  
+  <!-- Additional Questions -->
+  <h3>Additional Questions Specific to Restaurant Environment</h3>
+  <div class="question">
+    <p>How helpful was the robot in providing information about assisting with your questions?</p>
+    <label>1 <input type="radio" name="menuHelpfulness" value="1"></label>
+    <label>2 <input type="radio" name="menuHelpfulness" value="2"></label>
+    <label>3 <input type="radio" name="menuHelpfulness" value="3"></label>
+    <label>4 <input type="radio" name="menuHelpfulness" value="4"></label>
+    <label>5 <input type="radio" name="menuHelpfulness" value="5"></label>
+  </div>
+  
+  <div class="question">
+    <p>Would you prefer interacting with the robot for questions in the future?</p>
+    <label>1 <input type="radio" name="preferFutureInteraction" value="1"></label>
+    <label>2 <input type="radio" name="preferFutureInteraction" value="2"></label>
+    <label>3 <input type="radio" name="preferFutureInteraction" value="3"></label>
+    <label>4 <input type="radio" name="preferFutureInteraction" value="4"></label>
+    <label>5 <input type="radio" name="preferFutureInteraction" value="5"></label>
+  </div>
+  
+  <div class="question">
+    <p>Do you believe having the robot enhances the surrounding environment?</p>
+    <label>1 <input type="radio" name="enhanceDining" value="1"></label>
+    <label>2 <input type="radio" name="enhanceDining" value="2"></label>
+    <label>3 <input type="radio" name="enhanceDining" value="3"></label>
+    <label>4 <input type="radio" name="enhanceDining" value="4"></label>
+    <label>5 <input type="radio" name="enhanceDining" value="5"></label>
+  </div>
+  
+  <div class="question">
+    <p>Please provide any additional comments or suggestions for improving robot interactions in the restaurant:</p>
+    <textarea name="additionalComments" rows="4" cols="50"></textarea>
+  </div>
+  
+  <button type="submit">Submit</button>
+  
+</form>
+
+</body>
+</html>
