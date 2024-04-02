@@ -78,20 +78,21 @@
 
 <script>
     const form = document.getElementById("reservation-form");
-    const websocket = new WebSocket("ws://localhost:6789/"); // Make sure this is the correct URL for your websocket server
-
-    form.onsubmit = function(event) {
-      event.preventDefault();
+    const websocket = new WebSocket("ws://your_pepper_ip:6789/"); // Make sure to use the correct IP and port
+    
+    form.addEventListener('submit', function(event) {
+      event.preventDefault();  // Prevent normal form submission
       const formData = {
         name: document.getElementById("name").value,
-        people: document.getElementById("people").value,
+        numberOfPeople: document.getElementById("people").value,
         timeSlot: document.getElementById("time-slot").value
       };
       websocket.send(JSON.stringify(formData));
-    };
-
+    });
+    
     websocket.onmessage = function(event) {
-      alert(event.data); // This would be the confirmation message from the server
+      alert(event.data);  // Alert with the server response
+      // Pepper can now speak the response or further process it
     };
 </script>
 
