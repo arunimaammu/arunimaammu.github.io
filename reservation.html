@@ -76,28 +76,25 @@
     </form>
 </div>
 
-
 <script>
     const form = document.getElementById("reservation-form");
-    // Replace 'localhost' with the Pepper robot's IP if necessary
-    const websocket = new WebSocket("ws://169.254.104.31:6789/");
+    const websocket = new WebSocket("ws://169.254.182.221:6789/");
     
     form.onsubmit = function(event) {
       event.preventDefault(); // Prevent the normal form submission
       const formData = {
         name: form.elements["name"].value,
-        numberOfPeople: form.elements["number-of-people"].value,
+        numberOfPeople: form.elements["people"].value, // Corrected field name
         timeSlot: form.elements["time-slot"].value
       };
       websocket.send(JSON.stringify(formData));
     };
     
     websocket.onmessage = function(event) {
-      console.log(event.data); // Handle the server's response here
-      // This is where Pepper will speak the response
+      alert("Server says: " + event.data); // Example of handling server response
     };
-
 </script>
+
 
 </body>
 </html>
