@@ -76,25 +76,34 @@
     </form>
 </div>
 
+
 <script>
-    const form = document.getElementById("reservation-form");
-    const websocket = new WebSocket("ws://169.254.182.221:6789/");
-    
-    form.onsubmit = function(event) {
+    document.getElementById("reservation-form").onsubmit = function(event) {
       event.preventDefault(); // Prevent the normal form submission
       const formData = {
-        name: form.elements["name"].value,
-        numberOfPeople: form.elements["people"].value, // Corrected field name
-        timeSlot: form.elements["time-slot"].value
+        name: document.getElementById("name").value,
+        numberOfPeople: document.getElementById("people").value,
+        timeSlot: document.getElementById("time-slot").value
       };
-      websocket.send(JSON.stringify(formData));
-    };
-    
-    websocket.onmessage = function(event) {
-      console.log(event.data); // Example of handling server response
-      alert("Server says: " + event.data); 
+
+      fetch('http://localhost:5000/reserve', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+      .then(response => response.json())
+      .then(data => {
+        console.log('Success:', data);
+        alert(data.message); // Or any other indication to the user
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
     };
 </script>
+    
 
 
 </body>
