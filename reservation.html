@@ -92,6 +92,7 @@
     
     websocket.onmessage = function(event) {
       console.log(event.data); // Example of handling server response
+      alert("Server says: " + event.data); 
     };
 </script>
 
