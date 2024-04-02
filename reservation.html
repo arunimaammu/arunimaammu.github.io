@@ -76,32 +76,48 @@
     </form>
 </div>
 <script>
+function handleReservation(e) {
+    e.preventDefault(); // Prevent the default form submission
+    var name = document.getElementById('name').value;
+    var people = document.getElementById('people').value;
+    var timeSlot = document.getElementById('time-slot').value;
+    
+    // Log the data or handle it as needed before sending
+    console.log('Reservation Data:', { name, people, timeSlot });
+    
+    // Construct the data object to send
+    var reservationData = {
+        name: name,
+        people: people,
+        timeSlot: timeSlot
+    };
+    
+    // Send the reservation data to the Pepper robot's endpoint
+    sendReservationData(reservationData);
+}
+
+function sendReservationData(data) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', '/submit-reservation', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            // Here you could handle the response and trigger Pepper's response
+            var response = JSON.parse(xhr.responseText);
+            console.log('Server Response:', response);
+            // You would need to integrate the logic to communicate with Pepper here
+        } else {
+            console.error('Error submitting reservation:', xhr.responseText);
+        }
+    };
+    xhr.send(JSON.stringify(data));
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     var form = document.querySelector('form');
-    form.onsubmit = function(e) {
-        e.preventDefault();  // Prevent the default form submission
-        var name = document.getElementById('name').value;
-        var people = document.getElementById('people').value;
-        var timeSlot = document.getElementById('time-slot').value;
-        
-        // Now send this data to your Pepper's server-side endpoint
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', '/submit-reservation', true);
-        xhr.setRequestHeader('Content-Type', 'application/json');
-        xhr.onload = function() {
-            if (xhr.status === 200) {
-                var response = JSON.parse(xhr.responseText);
-                console.log(response); // You can do something with the response here
-                // Trigger Pepper's response based on the received data
-            }
-        };
-        xhr.send(JSON.stringify({ name: name, people: people, timeSlot: timeSlot }));
-    };
+    form.addEventListener('submit', handleReservation);
 });
 </script>
-
-</body>
-</html>
 
 </body>
 </html>
