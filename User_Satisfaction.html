@@ -4,6 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Satisfaction Survey</title>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var form = document.getElementById('userSatisfactionSurvey');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            var formData = new FormData(form);
+            fetch('/submit', { // Make sure this endpoint matches your server's endpoint
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => response.json())
+            .then(data => alert('Thank you for your submission!'))
+            .catch(error => console.error('Error:', error));
+        });
+    });
+    </script>
 </head>
 <body>
 
