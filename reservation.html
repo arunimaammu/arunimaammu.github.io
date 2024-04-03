@@ -4,6 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Restaurant Reservation Form</title>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var form = document.getElementById('userSatisfactionSurvey');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+        
+            var formData = new FormData(form);
+            fetch('/submit', { 
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();  // Use this if the server is supposed to return JSON
+                // return response.text();  // Use this if the server is supposed to return plain text
+            })
+            .then(data => {
+                console.log('Success:', data);
+                alert('Thank you for your submission!');
+            })
+            .catch(error => console.error('Error:', error));
+
+        });
+
+    });
+    </script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -98,31 +127,6 @@
     </form>
 </div>
 
-<script>
-document.getElementById("reservation-form").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent default form submission
-    
-    var formData = new FormData(this);
 
-    fetch('/submit', {
-        method: 'POST',
-        body: formData
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok ' + response.statusText);
-        }
-        return response.json(); // Adjust this line to match the expected response format
-    })
-    .then(data => {
-        console.log('Success:', data);
-        alert('Reservation successfully made!'); // Provide user feedback
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        alert('An error occurred while making the reservation.'); // Provide user feedback
-    });
-});
-</script>
 </body>
 </html>
