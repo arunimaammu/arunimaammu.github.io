@@ -98,6 +98,20 @@
     </form>
 </div>
 
+<script>
+document.getElementById("reservation-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent default form submission
+    
+    var formData = new FormData(this);
 
+    fetch('/submit', {
+        method: 'POST',
+        body: formData
+    })
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error('Error:', error));
+});
+</script>
 </body>
 </html>
