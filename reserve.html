@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Reservation Form</title>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var form = document.getElementById('reservation-form');
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+        
+            var formData = new FormData(form);
+            fetch('/submit', { 
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();  // Use this if the server is supposed to return JSON
+                // return response.text();  // Use this if the server is supposed to return plain text
+            })
+            .then(data => {
+                console.log('Success:', data);
+                alert('Thank you for your submission!');
+            })
+            .catch(error => console.error('Error:', error));
+
+        });
+
+    });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            padding: 20px;
+        }
+        .container {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: auto;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .inline-group {
+            display: flex;
+            align-items: center; /* Aligns items vertically center */
+            margin-bottom: 20px;
+        }
+        .inline-group > label {
+            margin-right: 10px; /* Adds some space between the label and the input */
+        }
+        .inline-group > input {
+            flex-grow: 1; /* Allows the input element to take up the remaining space */
+            padding: 10px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .side-by-side {
+            display: flex;
+            justify-content: space-between;
+        }
+        .side-by-side > .form-group {
+            flex-basis: 48%; /* Adjusts the basis of each item to be less than half, allowing for spacing */
+        }
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #cccccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .form-group button {
+            width: 100%;
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .form-group button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Restaurant Reservation</h2>
+    <form id="reservation-form">
+
+        <div class="inline-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+
+        <div class="side-by-side">
+            <div class="form-group">
+                <label for="people">Number of People:</label>
+                <input type="number" id="people" name="people" required>
+            </div>
+
+            <div class="form-group">
+                <label for="time-slot">Choose a Time Slot:</label>
+                <select id="time-slot" name="time-slot" required>
+                    <option value="6pm">6:00 PM</option>
+                    <option value="8pm">8:00 PM</option>
+                    <option value="9pm">9:00 PM</option>
+                </select>
+            </div>
+        </div>
+
+        <input type="submit" value="Submit">
+    </form>
+</div>
+
+
+</body>
+</html>
