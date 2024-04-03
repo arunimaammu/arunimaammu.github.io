@@ -97,34 +97,6 @@
     </form>
 </div>
 
-<script>
-    document.getElementById("reservation-form").onsubmit = function(event) {
-      event.preventDefault(); // Prevent the normal form submission
-      const formData = {
-        name: document.getElementById("name").value,
-        numberOfPeople: document.getElementById("people").value,
-        timeSlot: document.getElementById("time-slot").value
-      };
-
-      fetch('http://localhost:5000/reserve', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      })
-      .then(response => response.json())
-      .then(data => {
-        console.log('Success:', data);
-        alert(data.message); // Or any other indication to the user
-      })
-      .catch((error) => {
-        console.error('Error:', error);
-      });
-    };
-</script>
-    
-
 
 </body>
 </html>
