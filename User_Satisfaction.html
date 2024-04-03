@@ -16,12 +16,19 @@
                 method: 'POST',
                 body: formData,
             })
-            .then(response => response.text())  // Temporarily expect text for broader compatibility
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();  // Use this if the server is supposed to return JSON
+                // return response.text();  // Use this if the server is supposed to return plain text
+            })
             .then(data => {
-                console.log('Success:', data);  // Log success message
+                console.log('Success:', data);
                 alert('Thank you for your submission!');
             })
             .catch(error => console.error('Error:', error));
+
         });
 
     });
