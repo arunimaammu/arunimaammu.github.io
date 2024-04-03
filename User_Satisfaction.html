@@ -10,16 +10,20 @@
 
         form.addEventListener('submit', function(e) {
             e.preventDefault();
-
+        
             var formData = new FormData(form);
-            fetch('/submit', { // Make sure this endpoint matches your server's endpoint
+            fetch('/submit', { 
                 method: 'POST',
                 body: formData,
             })
-            .then(response => response.json())
-            .then(data => alert('Thank you for your submission!'))
+            .then(response => response.text())  // Temporarily expect text for broader compatibility
+            .then(data => {
+                console.log('Success:', data);  // Log success message
+                alert('Thank you for your submission!');
+            })
             .catch(error => console.error('Error:', error));
         });
+
     });
     </script>
 </head>
