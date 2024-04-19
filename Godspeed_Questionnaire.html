@@ -7,27 +7,37 @@
 <style>
   body { 
     font-family: Arial, sans-serif; 
-    font-size: 18pt; /* Further increased font size for body text */
   }
   .question { 
-    margin-bottom: 40px; /* Increased spacing between questions for better legibility */
+    margin-bottom: 15px;
   }
   .question label { 
-    display: block; /* Make each label appear on a new line */
-    margin-top: 5px; /* Add top margin to each label */
-    font-size: 18pt; /* Keep uniform font size with body */
+    margin-right: 10px; 
   }
   h2, h3 { 
-    font-size: 24pt; /* Increased heading sizes */
-    margin-bottom: 20px; /* Added more space below headings */
-  }
-  button { 
-    font-size: 18pt; 
-    padding: 15px 30px; /* Larger button for easier interaction */
+    margin-bottom: 10px;
   }
   textarea { 
-    font-size: 16pt; /* Slightly smaller than body text for differentiation */
     width: 100%; /* Ensure textarea spans the full width */
+  }
+  /* Styles for printing */
+  @media print {
+    body, .question label, button, textarea {
+      font-size: 22pt; /* Large font size for print */
+    }
+    .question {
+      margin-bottom: 25px; /* Increase bottom margin for questions */
+    }
+    h2, h3 {
+      font-size: 26pt; /* Larger headings for print */
+      page-break-after: avoid; /* Avoid breaking the page after a heading */
+    }
+    button {
+      padding: 20px; /* Bigger button for easier interaction */
+    }
+    textarea {
+      font-size: 20pt; /* Larger font size for textarea */
+    }
   }
 </style>
 </head>
